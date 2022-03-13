@@ -1,0 +1,3 @@
+{"level":"error","message":"error 메시지"}
+{"level":"warn","message":"warn 메시지"}
+{"level":"info","message":"info 메시지"}

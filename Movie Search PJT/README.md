@@ -12,7 +12,7 @@
 
 해당 프로젝트를 "[TMDB](https://www.themoviedb.org/?language=ko)"라는 영화와 관련된 데이터를 제공해주는 사이트를 이용하여, 받아온 데이터를 원하는 조건에 맞게 작성해준 프로젝트입니다.
 
-데이터는 다음과 같이 제공됩니다.
+데이터는 다음 이미지와 같이 제공됩니다.
 ![TMDB API](https://user-images.githubusercontent.com/99601412/159119843-916ef062-41bd-4cfc-ab52-79adb9df572f.png)
 
 ___

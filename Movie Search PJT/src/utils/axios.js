@@ -9,7 +9,7 @@ const request = axios.create({
   // baseUrl -> baseURL
   baseURL: DOMAIN,
   params: {
-    api_key: "d70e44a25c7b2738d37503b18372a99b",
+    api_key: "8cc495490816bcd24a706bb7e0de21b2",
     language: "ko-KR"
   }
 });

@@ -1,24 +1,28 @@
-# vue-starting-template
+# 프로젝트 실행
 
-## Project setup
-```
-npm install
-```
+1. VScode를 통해 해당 디렉토리를 연결시킵니다.
+2. 해당 디렉토리 터미널을 키고, `npm i`를 입력합니다.
+3. 설치가 완료되었다면, `npm run serve`를 통해 서버를 킵니다.
+4. 켜진 서버 주소(URL)에 접속합니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# 프로젝트 설명
 
-### Compiles and minifies for production
-```
-npm run build
-```
+해당 프로젝트를 "[TMDB](https://www.themoviedb.org/?language=ko)"라는 영화와 관련된 데이터를 제공해주는 사이트를 이용하여, 받아온 데이터를 원하는 조건에 맞게 작성해준 프로젝트입니다.
 
-### Lints and fixes files
-```
-npm run lint
-```
+데이터는 다음과 같이 제공됩니다.
+![TMDB API](https://user-images.githubusercontent.com/99601412/159119843-916ef062-41bd-4cfc-ab52-79adb9df572f.png)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+___
+
+해당 데이터를 가공하여, `계봉예정인 영화`, `상영중인 영화`, `인기있는 영화`를 보여주도록 작성해주었습니다.
+
+![계봉 예정](https://user-images.githubusercontent.com/99601412/159119937-fa4545d7-9d2e-4f2e-b8e8-534d783a303f.png)
+
+또한, 영화 포스터 클릭 시 해당 영화의 `상세 정보`(계봉일, 런타임, 장르, 예고편)등을 확인할 수 있습니다.
+
+![클릭시 상세정보](https://user-images.githubusercontent.com/99601412/159120026-ddaae032-5731-4963-a136-65be0d25bb9a.png)
+
+마지막으로, 원하는 `키워드`를 검색하여 키워드와 관련된 영화만 찾아볼 수 있습니다.
+
+![키워드 검색](https://user-images.githubusercontent.com/99601412/159120055-643c2153-eec9-4a7d-9153-a25c1a73e917.png)
+

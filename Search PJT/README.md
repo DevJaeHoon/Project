@@ -34,6 +34,6 @@
 3. `delete` 기능을 사용가능케 합니다.
 
 ## 참조 사이트
-[그래프 색깔 랜덤](https://tranquilotter.tistory.com/5)
-[그래프 차트](https://www.chartjs.org/docs/latest/)
-[네이버 검색 API](https://developers.naver.com/docs/serviceapi/datalab/search/search.md#%EB%84%A4%EC%9D%B4%EB%B2%84-%ED%86%B5%ED%95%A9-%EA%B2%80%EC%83%89%EC%96%B4-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A1%B0%ED%9A%8C)
+1. [그래프 색깔 랜덤](https://tranquilotter.tistory.com/5)
+2. [그래프 차트](https://www.chartjs.org/docs/latest/)
+3. [네이버 검색 API](https://developers.naver.com/docs/serviceapi/datalab/search/search.md#%EB%84%A4%EC%9D%B4%EB%B2%84-%ED%86%B5%ED%95%A9-%EA%B2%80%EC%83%89%EC%96%B4-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A1%B0%ED%9A%8C)

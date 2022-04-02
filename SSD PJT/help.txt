@@ -1,0 +1,33 @@
+=================================
+[Command Instruction]
+
+$write [LBA] [value]
+	LBA range : 0 ~ 99
+	value: 32 bit  hex value in upper case letter
+	SSD state will be stored in ./nand.txt
+	example: write 3 0xAAAABBBB
+
+$read [LBA]
+	LBA range: 0 ~ 99
+	result will be stored in ./result.txt
+	example: read 3
+
+$fullwrite [value]
+	write the value to all SSD LBA
+	SSD state will be stored in ./nand.txt
+	example: fullwrite 0x12345678
+
+$fullread
+	read value of LBA 0 ~ 99
+	result will be stored in ./result.txt
+	result only include the last result which is the value of LBA 99
+	example: fullread
+
+$testapp[number]
+	run test scenario [number]
+	print result of the test by comparing target answer and real value in LBA
+
+$exit
+	terminate the shell
+
+==================================

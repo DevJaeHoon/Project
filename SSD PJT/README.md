@@ -17,10 +17,13 @@ SSD에서 공간을 `LBA`라고 부릅니다. SSD 최대 LBA을 `400B`로 설정
 0 ~ 99까지의 공간은 모두 `0x00000000` 값으로 초기화 되어있습니다. 
 
 `write 3 0xAAAAAAAA`를 하게 되면, `nand.txt`에 다음 이미지와 같이 변경됩니다. 
+
 ![write](https://user-images.githubusercontent.com/99601412/161393739-46bfd42b-4137-4978-be5a-af12be4ad8aa.png)
+
 > 이미지에서 4 옆에 value가 변경된것은 주소가 0부터 시작하므로 LBA가 3은 4번째 주소이기 때문이다.
 
 `read 3`을 하게 되면, `nand.txt`에서 LBA가 3을 읽어 다음 이미지와 같이 `result.txt`에 쓰게 됩니다. 
+
 ![read](https://user-images.githubusercontent.com/99601412/161393872-d6d5d415-83b7-4ec8-b6b8-e0048c79a731.png)
 
 > result.txt는 데이터를 덮어 쓰는 구조로 항상 한 줄만 출력됩니다.

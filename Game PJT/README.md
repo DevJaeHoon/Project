@@ -16,7 +16,7 @@ CLI를 GUI 같이 만들 수 있는 `Ncurses LIB`를 통해 장애물(몬스터)
 게임을 실행하면 우선 게임에 대해 설명해줍니다. `우측 방향키 `를 통해 게임을 시작할 수 있습니다.
 게임은 `3초 후`에 시작합니다.
 
-![write](https://user-images.githubusercontent.com/99601412/161393739-46bfd42b-4137-4978-be5a-af12be4ad8aa.png)
+![image](https://user-images.githubusercontent.com/99601412/162448361-6a1289e7-f354-4d94-a8fc-8a8addafd8cc.png)
 
 주인공, 벽, 장애물 등을 화면에 띄우는 print() 함수를 구현하였습니다.
 키가 입력되는 것을 기다리는 `폴링` 방식이 아닌 대기하지 않고 진행되도록 `nodelay`로 구현하였습니다.
@@ -24,7 +24,7 @@ CLI를 GUI 같이 만들 수 있는 `Ncurses LIB`를 통해 장애물(몬스터)
 
 
 
-![read](https://user-images.githubusercontent.com/99601412/161393872-d6d5d415-83b7-4ec8-b6b8-e0048c79a731.png)
+![image](https://user-images.githubusercontent.com/99601412/162448393-79bc6e1e-6c93-4269-ac0e-df87b3827912.png)
 
 목적지 도착 하면 `게임 CLEAR` , 몬스터 만나거나 특정 이벤트로 인한 패널티로 `게임 OVER`가 됩니다.
 

@@ -1,41 +1,42 @@
-## 가상 SSD 제작
-SSD를 모사하여 Driver level 까지가 아닌 윗단에서 처리 되는 시뮬레이터를 개발하였습니다. Test 시나리오를 또한 제작하여 `Black Box test`까지 가능토록 구현하였습니다.
+## DataBase 웹 서버 구축
+AWS서버와 클라이언트를 소켓 작성 프레임워크를 통해 연결하였고, 다중 쓰레드를 통해 `500명`까지 동시 접속할 수 있는 데이터베이스 서버를 구축하였습니다.
 
 ### 환경 
+- AWS
 - Ubuntu 20.04 LTS
 - GCC
+- Thread
+- socket
+- signal
+- NtCat
 
 ## 실행방법
-1. 콘솔창에서 `make`를 입력하여 빌드 및 링크를 할 수 있습니다.
-2. 생성된 링크 중 `shell`이라는 링크를 실행합니다.
-3. `SSD_SHELL >>` 뒤에 명령어를 기입하여 쓰기/읽기/테스트 등에 대한 SSD와 관련된 명령을 실행할 수 있습니다.
-4. 명령어 설명을 위해 `help`를 우선적으로 입력해봅시다!
+1. [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fap-northeast-2.console.aws.amazon.com%2Fec2%2Fv2%2Fhome%3Fregion%3Dap-northeast-2%26state%3DhashArgs%2523LaunchInstanceWizard%253A%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fec2&forceMobileApp=0&code_challenge=WrAiITH3zgku5jj4jk7tQa7Dvkeifl00dtT3NL30zBc&code_challenge_method=SHA-256)에서 로그인 및 서버를 만들어줍니다. TCP 연결을 위한 서버로 `포트와 IP`를 기억해둡니다.
+2. `MobaXterm`에 AWS에서 생성한 TCP 서버를 연결해주고, `server.c`코드에서 `13번째 줄 port 부분`을 본인이 생성한 포트로 변경해줍니다.
+3. `gcc ./server.c -D_REENTRANT -o ./server -lpthread`빌드해주고, `./server`를 통해 실행시켜줍니다.
+4. `Ubuntu`와 연결해준 `MobaXterm`에는 `client.c` 코드에서 13, 14번째 줄의 IP와 PORT를 본인이 생성한 것으로 바꿔줍니다.
+5. `gcc ./client.c -D_REENTRANT -o ./client -lpthread`빌드해주고, `./client`를 통해 실행시켜줍니다.
+6. 더 많은 인원을 접속시켜주기 위해서는 4번과 5번 과정을 수행합니다.
 
 ## 프로젝트 설명
-SSD에서 공간을 `LBA`라고 부릅니다. SSD 최대 LBA을 `400B`로 설정하였습니다. 하나의 LBA에는 `4B`가 필요하여, 0 ~ 99까지 총 100개의 공간으로 구현하였습니다. 
+위 실행방법을 통해 실행시켰다면, 다음 명령어를 통해 사용할 수 있습니다.
+- connect : 서버와 연결한다.
+- save [key]:[vale] : key와 value 값을 서버에 저장합니다.
+- read [key] : 서버에 저장된 key값의 value를 읽어옵니다
+- close : 서버와 통신을 끊습니다.
+- exit : 클라이언트를 종료시킵니다.
 
-0 ~ 99까지의 공간은 모두 `0x00000000` 값으로 초기화 되어있습니다. 
+|서버|클라이언트1|클라이언트2|
+|-|-|-|
+|![sever](https://user-images.githubusercontent.com/99601412/164195040-4294ff10-1586-4c8f-beb2-dd2a16d91efe.png)|![클라이언트1](https://user-images.githubusercontent.com/99601412/164195046-4227adbb-eefa-4ee8-875f-b70374144fa0.png)|![클라이언트2](https://user-images.githubusercontent.com/99601412/164195062-79055c96-b5ef-49ec-9456-ae450d5b25a2.png)|
 
-`write 3 0xAAAAAAAA`를 하게 되면, `nand.txt`에 다음 이미지와 같이 변경됩니다. 
+멀티 쓰레드를 통해 최대 `500명`까지 다중 접속이 가능하고, DB공간도 최대 `10000개` 저장가능합니다.
 
-![write](https://user-images.githubusercontent.com/99601412/161393739-46bfd42b-4137-4978-be5a-af12be4ad8aa.png)
-
-> 이미지에서 4 옆에 value가 변경된것은 주소가 0부터 시작하므로 LBA가 3은 4번째 주소이기 때문이다.
-
-`read 3`을 하게 되면, `nand.txt`에서 LBA가 3을 읽어 다음 이미지와 같이 `result.txt`에 쓰게 됩니다. 
-
-![read](https://user-images.githubusercontent.com/99601412/161393872-d6d5d415-83b7-4ec8-b6b8-e0048c79a731.png)
-
-> result.txt는 데이터를 덮어 쓰는 구조로 항상 한 줄만 출력됩니다.
+통신이 연결되지 않은 상태에서는 저장과 읽기가 되지 않습니다.
 
 ## 배운 점
-- c를 이용한 shell 프로그래밍을 통해 다양한 기능을 구현 가능합니다.
-- `Makefile`을 이용하여 여러개의 파일들을 Build & Link할 수 있습니다.
-- `SSD의 용어와 대략적인 구조`를 가상 SSD를 구현해봄으로써 이해하였습니다.
-- `Black Box Test`에 대해 간단히 구현해볼 수 있었습니다.
-## 한계점
-해당 프로젝트에서 구현한 가상 SSD에서는 모든 LBA의 value를 읽어서 가져와 해당 value 중 입력된 LBA의 value를 수정 후 다시 가져온 파일에 쓰게 되는 구조입니다. 
+- NetCat이라는 가짜 서버와 클라이언트를 통해 코드 유지보수에 큰 이점이 있음을 알았습니다.
+- 서버/클라이언트 소켓 작성 프레임워크를 통해 통신 연결을 할 수 있습니다.
+- 다중 쓰레드를 구현하여 동시 접속이 가능케 할 수 있습니다.
+- Signal을 통해 프로세스를 제어할 수 있습니다.
 
-총 공간 400B로 설정한 해당 프로젝트에서는 속도의 크게 문제없이 잘 구현되어 작동되었지만, 더 높은 용량의 SSD를 구현해야 할 때에는 다른 방식을 통하여 구현해야 합니다.
-
-그렇지 않다면, SSD의 장점인 `속도`를 잃어버리게 됩니다.

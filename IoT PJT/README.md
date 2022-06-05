@@ -29,14 +29,27 @@ Python용 Qt인 Pyside를 통하여 UI를 제작하여 UI를 통해 RC카를 제
 # 설명
 ## RC카 제어
 UI를 통해 RC카를 조작할 수 있습니다. `DC모터`를 통해 동작하며, 후륜구동합니다. `서보모터`를 통해 앞바퀴를 좌우로 제어합니다. RC카와 장애물 과의 거리가 가까워지면, 긴급제동과 함께 부저를 울립니다.
+
+|RC카 수동 제어|장애물 접근 시 긴급 제동|
+|-|-|
+|<img src="https://user-images.githubusercontent.com/99601412/172049361-b5a6110f-d736-4b1f-accb-45ab0cfb2476.gif">|<img src="https://user-images.githubusercontent.com/99601412/172049433-85016c8f-2d01-40a1-89ee-4ab5b1d03d4c.gif">|
 ## OLED 출력
 UI를 통해 10자 이하의 텍스트 혹은 정해진 4가지 감정표현을 OLED에 출력할 수 있습니다. 또한, RC카를 제어하고 있다면 RC카 동작 상태를 OLED에 출력합니다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/99601412/172049261-fae07bd9-cfb9-4651-8958-4bb7862ac5fa.gif"></p>
+
 ## 센싱 데이터로 UI에 메세지 띄우기
 초음파 센서를 통해 장애물이 가까워진 것을 인식한다면, UI에 `장애물 발견` 메세지를 출력합니다.
 날씨가 더워져서, 온도 33도 이상이 되면, `33도 이상` 메세지를 출력합니다.
 습도가 낮아지면, `습도 낮음` 메세지를 출력합니다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/99601412/172048724-cf6548f5-9267-4556-ada1-cd208146df11.gif"></p>
+
 ## 센싱 데이터를 그래프로 시각화하기
-Node.js로 제작한 백엔드에서 0.1 초 마다 DB에 저장된 Sensing Data를 받아와 프론트엔드로 넘겨줍니다. 프론트엔드는 해당 데이터를 Vue.js & Apexchart 라이브러리를 이용하여 그래프로 시각화 해줍니다.
+Node.js로 제작한 백엔드에서 1 초 마다 DB에 저장된 Sensing Data를 받아와 프론트엔드로 넘겨줍니다. 프론트엔드는 해당 데이터를 Vue.js & Apexchart 라이브러리를 이용하여 그래프로 시각화 해줍니다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/99601412/172048272-b0323ef1-e4ce-4ec4-89ef-eff0df2b10a0.gif"></p>
+
 # 배운점
 * Python에서 Timer을 사용하여 Main Thread와 별개로 `Timer Thread`가 작동하여 다중 Thread를 구현할 수 있다.
 * AWS와 MySQL을 연동 및 MySQL에서의 Query문을 사용할 수 있습니다.

@@ -32,7 +32,7 @@ UI를 통해 RC카를 조작할 수 있습니다. `DC모터`를 통해 동작하
 
 |RC카 수동 제어|장애물 접근 시 긴급 제동|
 |-|-|
-|<img src="https://user-images.githubusercontent.com/99601412/172049361-b5a6110f-d736-4b1f-accb-45ab0cfb2476.gif">|<img src="https://user-images.githubusercontent.com/99601412/172049433-85016c8f-2d01-40a1-89ee-4ab5b1d03d4c.gif">|
+|<img src="https://user-images.githubusercontent.com/99601412/172049682-d1341211-7ff8-4d26-8bf2-152f94088ef8.gif">|<img src="https://user-images.githubusercontent.com/99601412/172049433-85016c8f-2d01-40a1-89ee-4ab5b1d03d4c.gif">|
 ## OLED 출력
 UI를 통해 10자 이하의 텍스트 혹은 정해진 4가지 감정표현을 OLED에 출력할 수 있습니다. 또한, RC카를 제어하고 있다면 RC카 동작 상태를 OLED에 출력합니다.
 

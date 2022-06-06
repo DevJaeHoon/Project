@@ -27,6 +27,8 @@ Python용 Qt인 Pyside를 통하여 UI를 제작하여 UI를 통해 RC카를 제
 * 18650 battery x 4개
 
 # 설명
+![image](https://user-images.githubusercontent.com/99601412/172088049-f9c346f5-e4a3-4df1-9eb1-2a59721f60f4.png)
+
 ## RC카 제어
 UI를 통해 RC카를 조작할 수 있습니다. `DC모터`를 통해 동작하며, 후륜구동합니다. `서보모터`를 통해 앞바퀴를 좌우로 제어합니다. RC카와 장애물 과의 거리가 가까워지면, 긴급제동과 함께 부저를 울립니다.
 
